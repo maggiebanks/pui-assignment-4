@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html> 
+
+<head>
+    <script src="flipstitch.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Top navigation bar -->
+    <nav>
+    <ul>
+    <a href="cart.html"><img id="cart" src="images/shopping-cart-icon.png"></a>
+    <li><a class="active" href="productdetail.html">Pillow</a></li>
+    <li><a href="productlist.html">Shop</a></li>
+    <li><a href="index.html">Home</a></li>
+    <a href="index.html"><img src="images/bed-icon.png"></a>
+    </ul>
+    </nav>
+
+    <!-- Pillow type, price, and description -->
+    <div class="page_metadata">
+    	<h5>Round Pillow — $35</h5>
+      <h3>This assortment of round throw pillows can be used in any room of your home. The velvety finish is from fabric made locally only in Pittsburgh.</h3>
+    	<img src="images/round-pillow2.png">
+    </div>
+
+    <!-- Grid of icons that displays the 6 pillow shape options -->
+    <div class="options">	
+    <div class="shapes">
+        <img src="images/square.png">
+        <p>Square</p>
+    </div>
+    <div class="shapes">
+        <img src="images/circle.png">
+        <p>Round</p>
+    </div>
+    <div class="shapes">
+        <img src="images/dog.png">
+        <p>Dog</p>
+    </div>
+    <div class="shapes">
+        <img src="images/bear.png">
+        <p>Bear</p>
+    </div>
+    <div class="shapes">
+        <img src="images/bunny.png">
+        <p>Bunny</p>
+    </div>
+    <div class="shapes">
+        <img src="images/cat.png">
+        <p>Cat</p>
+    </div>
+    </div>
+
+    <!-- Form to submit pillow shape request -->
+    <div class="form">
+      <form action="form_message.html">
+        <h3>Don't see the shape you're looking for?</h3>
+        <label for="lname">Email</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your email address..">
+        <label for="subject">Pillow Shape Request</label>
+        <textarea id="subject" name="subject" placeholder="Your customized pillow shape request..." style="height:50px"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+</body>
+
+</html>

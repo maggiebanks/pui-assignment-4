@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html> 
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="main.js" type="text/javascript" defer></script>
+
+</head>
+
+<body>
+  <!-- Top navigation bar -->
+  <nav>
+  <ul>
+  <a href="cart.html"><img id="cart" src="images/shopping-cart-icon.png"></a>
+  <span id="pillowCount"></span>
+  <li><a class="active" href="productdetail.html">Pillow</a></li>
+  <li><a href="productlist.html">Shop</a></li>
+  <li><a href="index.html">Home</a></li>
+  <a href="index.html"><img src="images/bed-icon.png"></a>
+  </ul>
+  </nav>
+
+  <!-- Pillow type, price, and description -->
+  <div class="page_metadata">
+  	<h5>Couch Pillow — <span id="price">$30</span></h5>
+    <h3>This is a plush throw pillow will make your home look like you went to design school. Choose from an assortment of shapes and designs.</h3>
+  	<img src="images/couch-pillows-2.png" id="shape-image">
+  </div>
+
+  <h2 id="style">Choose a style:</h2>
+  <!-- Grid of icons that displays the 6 pillow shape options -->
+  <div class="options">
+    <div class="shapes">
+        <img id="square" src="images/square.png">
+        <p>Square</p>
+    </div>
+    <div class="shapes">
+        <img id="round" src="images/circle.png">
+        <p>Round</p>
+    </div>
+    <div class="shapes">
+        <img id="dog" src="images/dog.png">
+        <p>Dog</p>
+    </div>
+    <div class="shapes">
+        <img id="bear" src="images/bear.png">
+        <p>Bear</p>
+    </div>
+    <div class="shapes">
+        <img id="bunny" src="images/bunny.png">
+        <p>Bunny</p>
+    </div>
+    <div class="shapes">
+        <img id="cat" src="images/cat.png">
+        <p>Cat</p>
+    </div>
+    <h2 id="number-title">Choose # of Pillows:</h2>
+  </div>
+
+
+  <form class="radio">
+    <input id="onepack" type="radio" name="quantity" value="one-pack" checked> 1 Pack<br>
+    <input id="twopack" type="radio" name="quantity" value="two-pack"> 2 Pack<br>
+    <input id="fourpack" type="radio" name="quantity" value="four-pack"> 4 Pack<br> 
+  </form> 
+
+
+  <!-- Add to cart -->
+
+  <div class="add-button">
+    <button type="button" class="add">Add to Cart</button>
+  </div>
+
+<hr>
+
+  <!-- Form to submit pillow shape request -->
+  <div class="form">
+    <form action="form_message.html">
+      <h3>Don't see the shape you're looking for?</h3>
+      <label for="lname">Email</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your email address..">
+
+      <label for="subject">Pillow Shape Request</label>
+      <textarea id="subject" name="subject" placeholder="Your customized pillow shape request..." style="height:50px"></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+
+
+</html>
