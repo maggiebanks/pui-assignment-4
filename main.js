@@ -1,107 +1,41 @@
-// storage = window.localStorage;
-// if (storage.getItem("cart") == ""){
-//     storage.setItem("cart",JSON.stringify([]));
-// }
-
-// cart = JSON.parse(storage.getItem("cart"));
-
-// function Addcart(item) {
-//     if (storage.getItem("cart") == ""){
-//     storage.setItem("cart",JSON.stringify([]));
-//     }
-//     cart = JSON.parse(storage.getItem("cart"));
-//     c.push(item);
-//     storage.setItem("cart", JSON.stringify(cart));
-//     }
-
-// function callCart(){
-//     if (localStorage.c == "") {
-//     storage.setItem("cart", JSON.stringify([]));
-//     }
-//     cart = JSON.parse(storage.getItem("cart"));
-//     return cart;
-//     }
-
-// function saveCart(cart) {
-//     storage.setItem("cart",JSON.stringify(c));
-//     }
-
-// function removeItem(i, cart) {
-//     cart.splice(i,1);
-//     saveCart(cart);
-//     }
-
-// once clicking add to cart
-// get the options selected
-// create the order object
-// add the order into the cart by doing cart.push(order);
-// storage.setItem("cart",JSON.stringify(cart))
-
-function order(shape, quantity, price, cart) {
-  this.shape = shape;
-  this.quantity = quantity;
-  this.price = price;
-  this.cart = cart;
+storage = window.localStorage;
+if (storage.getItem("cart") == null){
+    storage.setItem("cart",JSON.stringify([]));
 }
+
+cart = JSON.parse(storage.getItem("cart"));
 
 var shapes = ["square", "round", "dog"];
 
+var curShape = "square";
+var curQuantity = 1;
 
 $(document).ready(function(){
 
+    $("#itemCount").text(cart.length);
+
     // shapes of pillows 
-    $("#square").click(function(){  
-        order.shape = shapes[0];   
-        $("#shape-image").attr("src","Images/square-pillow.png"); 
-    });
-
-    $("#round").click(function(){  
-        $(order.shape = shapes[0]);   
-        $("#shape-image").attr("src","Images/round-pillow.png");
-    });
-
-    $("#dog").click(function(){  
-        $(order.shape = shapes[0]);   
-        $("#shape-image").attr("src","Images/dog-pillow.png");
-    });
-
-    $("#bear").click(function(){  
-        $(order.shape = shapes[0]);   
-        $("#shape-image").attr("src","Images/bear-pillow.png");
-    });
-
-    $("#bunny").click(function(){  
-        $(order.shape = shapes[0]);   
-        $("#shape-image").attr("src","Images/bunny-pillow.png");
-    });
-
-    $("#cat").click(function(){  
-        $(order.shape = shapes[0]);   
-        $("#shape-image").attr("src","Images/cat-pillow.png");
+    $(".shapes").click(function(){
+        id = $(this).find("img").attr("id");
+        curShape = id;
+        $("#shape-image").attr("src","Images/"+id+"-pillow.png");
     });
 
     //# of pillows
-    $("#onepack").click(function(){  
-        $(order.shape = shapes[0]);   
-        $("#price").text("$80");
+    $("#onepack").click(function(){    
+        $("#price").text("$30");
+        curQuantity = 1;
     });
 
-    $("#twopack").click(function(){  
-        $(order.quantity = quantity[1]);   
+    $("#twopack").click(function(){     
         $("#price").text("$60");
+        curQuantity = 2;
     });
 
-    $("#fourpack").click(function(){  
-        $(order.quantity = quantity[1]);   
+    $("#fourpack").click(function(){     
         $("#price").text("$120");
+        curQuantity = 4;
     });
-
-    // $(function() {
-    //     if $("twopack").click(function)(){ && $("#shape-image").click(function){
-    //         $("#price").text("$120");
-    //     }
-    // });
-    // });
 
     // pink sticky hover for selected pillow shape
     $(function() {
@@ -115,26 +49,19 @@ $(document).ready(function(){
 
       })
 
-    // var pillowCount = 0;
-
-    // $('.add').click(function (){
-    //     localStorage.setItem("quantity", true);
-    //     pillowCount ++;
-    //     order = {};
-    //     order.price = get your price value;
-    //     order.quantiy = get your sleected quantity
-    //     order.shape = get your shape
-    //     cart.push(order);
-    //     storage.setItem("cart",JSON.stringify(cart));
-
-    //     $('#pillowCount').html(pillowCount).css('display', 'block');    
-    // }); 
-
-    // $('.clear').click(function() {
-    //   pillowCount = 0;
-    //   $('#pillowCount').html('').css('display', 'none');
-    //   $('#cartItems').html('');
-    // }); 
+    $('.add').click(function (){
+        cart = JSON.parse(storage.getItem("cart"));
+        console.log(cart);
+        order = {};
+        order.quantity = curQuantity;
+        order.price = parseInt($("#price").text().slice(1)) * curQuantity;
+        order.shape = curShape;
+        order.title = "Couch Pillow";
+        cart.push(order);
+        $("#itemCount").text(cart.length);
+        console.log(order);
+        storage.setItem("cart",JSON.stringify(cart));   
+    }); 
 
 });
 
